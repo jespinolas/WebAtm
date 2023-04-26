@@ -1,0 +1,62 @@
+.login-form {
+   margin: 0 auto;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+
+.login-form input {
+   margin-bottom: 15px;
+}
+
+.login-form fieldset {
+   margin-top: 30px;
+   border: 1px solid #ddd;
+   padding: 20px;
+   border-radius: 5px;
+   margin-bottom: 25px;
+}
+
+.login-form legend {
+   font-size: 24px;
+   font-weight: 600;
+   margin-bottom: 15px;
+   margin-top: 25px;
+}
+
+
+.login-form .ui-inputtext {
+   width: 100%;
+   padding: 10px;
+   border-radius: 3px;
+   border: 1px solid #ddd;
+}
+
+.login-form .ui-button {
+   width: 100%;
+   padding: 10px;
+   border-radius: 3px;
+   border: none;
+   background-color: #2196f3;
+   color: #fff;
+   font-size: 16px;
+   font-weight: 600;
+   text-transform: uppercase;
+   cursor: pointer;
+   margin-top: 25px;
+   margin-bottom: 25px;
+}
+
+.login-form .ui-button:hover {
+   background-color: #1565c0;
+}
+
+.login-form input,
+.login-form textarea,
+.login-form select,
+.login-form legend,
+.login-form .ui-outputlabel {
+    font-family: "Open Sans", sans-serif;
+}
+

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Bienvenido</title>
+        <h:outputStylesheet name="css/home.css" />
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form>
+                <fieldset>
+                    <legend>Bienvenido, #{loginBean.usuario.nombre} #{loginBean.usuario.apellido}!</legend>
+
+                    <p:panelGrid columns="2">
+                        <p:outputLabel for="correo" value="Correo electrónico:"/>
+                        <p:outputLabel id="correo" value="#{loginBean.usuario.correo_electronico}"/>
+
+                        <p:outputLabel for="telefono" value="Número de teléfono:"/>
+                        <p:outputLabel id="telefono" value="#{loginBean.usuario.numero_telefono}"/>
+
+                        <p:outputLabel for="saldo" value="Saldo de cuenta:"/>
+                        <p:outputLabel id="saldo" value="#{loginBean.usuario.cuenta.saldo}"/>
+                    </p:panelGrid>
+
+                    <p:commandButton value="Cerrar sesión" action="#{loginBean.logout()}" ajax="false"/>
+                </fieldset>
+            </h:form>
+        </f:view>
+    </h:body>
+</html>
