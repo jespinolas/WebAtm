@@ -49,4 +49,9 @@ public class Cuenta {
     public void setId_usuario(int id_usuario) {
         this.id_usuario = id_usuario;
     }
+    
+    public void depositar(BigDecimal cantidad) {
+    this.saldo = this.saldo.add(cantidad);
+}
+
 }

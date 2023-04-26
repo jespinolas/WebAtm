@@ -4,6 +4,7 @@ import com.mycompany.webatm.Vo.Cuenta;
 import com.mycompany.webatm.Vo.Usuario;
 import com.mycompany.webatm.conexion.ConexionBD;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -12,6 +13,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import org.primefaces.PrimeFaces;
 
 @Named
 @SessionScoped
@@ -21,6 +23,8 @@ public class LoginBean implements Serializable {
     private String password;
     private boolean loggedIn;
     private Usuario usuario;
+    private BigDecimal montoDeposito;
+    private String numeroCuentaDeposito;
 
     public LoginBean() {
         this.loggedIn = false;
@@ -63,23 +67,8 @@ public class LoginBean implements Serializable {
         } catch (SQLException e) {
             System.out.println("Error al conectarse a la base de datos: " + e.getMessage());
             return null;
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (ps != null) {
-                    ps.close();
-                }
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (SQLException e) {
-                System.out.println("Error al cerrar la conexión de la base de datos: " + e.getMessage());
-            }
         }
     }
-
 
     public String logout() {
         this.loggedIn = false;
@@ -87,6 +76,7 @@ public class LoginBean implements Serializable {
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         return "login?faces-redirect=true";
     }
+
 
     public String getEmail() {
         return email;

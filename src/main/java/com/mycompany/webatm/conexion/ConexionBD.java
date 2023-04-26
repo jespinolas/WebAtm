@@ -5,8 +5,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConexionBD {
+
     private static Connection conn;
-    
+
     public static Connection obtenerConexion() {
         if (conn != null) {
             return conn;
@@ -22,4 +23,7 @@ public class ConexionBD {
             return conn;
         }
     }
+
+
+
 }

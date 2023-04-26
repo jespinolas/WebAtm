@@ -12,6 +12,7 @@
             <h:form>
                 <fieldset>
                     <legend>Bienvenido, #{loginBean.usuario.nombre} #{loginBean.usuario.apellido}!</legend>
+                    <p:commandButton value="Cerrar sesión" action="#{loginBean.logout()}" ajax="false"/>
 
                     <p:panelGrid columns="2">
                         <p:outputLabel for="correo" value="Correo electrónico:"/>
@@ -24,7 +25,26 @@
                         <p:outputLabel id="saldo" value="#{loginBean.usuario.cuenta.saldo}"/>
                     </p:panelGrid>
 
-                    <p:commandButton value="Cerrar sesión" action="#{loginBean.logout()}" ajax="false"/>
+
+
+
+                    <p:commandButton value="Depositar dinero" onclick="PF('dlgDeposito').show();" />
+
+                    <p:dialog header="Depositar dinero" widgetVar="dlgDeposito">
+                        <h:form>
+                            <p:panelGrid columns="2">
+                                <p:outputLabel for="monto" value="Monto:"/>
+                                <p:inputText id="monto" value="#{homeBean.montoDeposito}" />
+
+                                <p:outputLabel for="cuenta" value="Cuenta destino:"/>
+                                <p:inputText id="cuenta" value="#{homeBean.numeroCuentaDeposito}" />
+
+                                <p:commandButton value="Depositar" action="#{homeBean.depositar()}" update="@form" ajax="false"/>
+                                <p:commandButton value="Cancelar" onclick="PF('dlgDeposito').hide();" />
+                            </p:panelGrid>
+                        </h:form>
+                    </p:dialog>
+
                 </fieldset>
             </h:form>
         </f:view>
